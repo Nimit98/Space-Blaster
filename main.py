@@ -44,7 +44,7 @@ for i in range(no_of_enemies):
     enemyImg.append(pygame.image.load('images/monster.png'))
     enemyX.append(random.randint(0, 735))
     enemyY.append(random.randint(0, 50))
-    enemyX_change.append(3.5)
+    enemyX_change.append(2)
     enemyY_change.append(40)
 
 
@@ -114,9 +114,9 @@ while running:
         # If keystroke is pressed check right or left
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                playerX_change = -5
+                playerX_change = -2
             if event.key == pygame.K_RIGHT:
-                playerX_change = 5
+                playerX_change = 2
             if event.key == pygame.K_SPACE:
                 if bullet_state == 'ready':
                     bullet_sound = mixer.Sound('musics/laser.wav')
@@ -148,10 +148,10 @@ while running:
 
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
-            enemyX_change[i] = 3.5
+            enemyX_change[i] = 1.25
             enemyY[i] += enemyY_change[i]
         elif enemyX[i] >= 736:
-            enemyX_change[i] = -3.5
+            enemyX_change[i] = -1.25
             enemyY[i] += enemyY_change[i]
 
         # Collision
